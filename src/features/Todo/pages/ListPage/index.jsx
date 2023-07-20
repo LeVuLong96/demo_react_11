@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import queryString from 'query-string';
+import React, { useEffect, useState } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import TodoList from '../../components/TodoList';
 
 ListPage.propTypes = {};
@@ -20,12 +22,26 @@ function ListPage(props) {
             title: 'Code',
             status: 'new',
         }
-    ]
+    ];
 
-    const [todoList, setTodoList] = useState(initTodoList)
-    const [filteredStatus, setFilteredStatus] = useState("all");
+    
+    const location = useLocation();
+    console.log(location, 29)
+    
 
-    // thay đổi status của từng đối tượng:
+    const [todoList, setTodoList] = useState(initTodoList);
+    const [filteredStatus, setFilteredStatus] = useState(() => {
+        const params = queryString.parse(location.search);
+        console.log(params, 34);
+        return params.status || 'all';
+    });
+
+    useEffect(() => {
+
+    }, [location.search])
+
+
+    // Update status :
     const handleTodoClick = (todo, idx) => {
         const newTodoList = [...todoList];
         newTodoList[idx] = {
@@ -38,6 +54,7 @@ function ListPage(props) {
     // Show list đã được lọc theo từng status
     const handleShowAllClick = () => {
         setFilteredStatus('all');
+        
     };
     const handleShowCompleted = () => {
         setFilteredStatus('completed');
@@ -45,6 +62,8 @@ function ListPage(props) {
     const handleShowNewClick = () => {
         setFilteredStatus('new');
     };
+
+
     const renderedTodoList = todoList.filter(todo => filteredStatus === 'all' || filteredStatus === todo.status)
 
     // render

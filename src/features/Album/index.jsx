@@ -1,4 +1,5 @@
 import React from 'react';
+import AlbumList from './components/AlbumList';
 
 AlbumFeatures.propTypes = {};
 
@@ -28,7 +29,7 @@ function AlbumFeatures(props) {
 
     return (
         <div>
-            <albumList albumList={albumList}/>
+            <AlbumList albumList={albumList}/>
         </div>
     );
 }

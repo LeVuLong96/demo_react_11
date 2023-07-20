@@ -9,6 +9,8 @@ AlbumList.propTypes = {
 
 function AlbumList({ albumList }) {
     return (
+        <div>
+            <h3>Album list</h3>
         <ul className="album-list">
             {albumList.map((album =>
                 <li key={album.id}>
@@ -16,6 +18,8 @@ function AlbumList({ albumList }) {
                 </li>
             ))}
         </ul>
+        </div>
+        
     );
 }
 
