@@ -5,8 +5,21 @@ import TodoFeature from './features/Todo';
 import DetailPage from './features/Todo/pages/DetailPage';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
+import { useEffect } from 'react';
+import productApi from './api/productApi';
 
 function App() {
+  
+  useEffect (() => {
+    const fetchProducts = async () => {
+      const productList = await productApi.getAll();
+      // console.log(productList.data);
+    }
+
+    fetchProducts();
+  }, [])
+
+
   return (
     <div className='app'>
       <div>
