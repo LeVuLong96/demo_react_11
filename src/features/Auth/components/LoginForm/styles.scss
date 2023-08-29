@@ -1,0 +1,22 @@
+.login {
+    position: relative;
+    padding-top: 0px;
+
+    &__avatar {
+        margin: 10px auto;
+    }
+
+    &__title {
+        text-align: center;
+
+        &.spaced {
+            margin-bottom: 25px; 
+        }
+    }
+
+    &__form {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+}
