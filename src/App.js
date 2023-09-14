@@ -5,20 +5,10 @@ import TodoFeature from './features/Todo';
 import DetailPage from './features/Todo/pages/DetailPage';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
-// import { useEffect } from 'react';
-// import productApi from './api/productApi';
 import CounterFeature from './features/Counter';
+import ProductFeature from 'features/Product';
 
 function App() {
-  
-  // useEffect (() => {
-  //   const fetchProducts = async () => {
-  //     const productList = await productApi.getAll();
-  //     console.log(productList.data);
-  //   }
-
-  //   fetchProducts();
-  // }, [])
 
 
   return (
@@ -33,15 +23,10 @@ function App() {
           <Route path=':todoId' element={<DetailPage/>}/>
         </Route>
         <Route path='/albums' element={<AlbumFeature/>}/>
+        <Route path='/products/*' element={<ProductFeature/>}/>
 
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-
-      <div>
-        <h1>
-          footer
-        </h1>
-      </div>
     </div>
     
   );

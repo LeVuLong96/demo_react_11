@@ -18,7 +18,6 @@ export const login = createAsyncThunk(
     'users/login',
     async (payload) => {
         const data = await userApi.login(payload);
-        console.log(data.data);
         localStorage.setItem(StorageKeys.TOKEN, data.data.jwt);
         localStorage.setItem(StorageKeys.USER, JSON.stringify(data.data.user));
         return data.data.user;
@@ -39,25 +38,17 @@ const userSlice = createSlice({
             state.current = {};
         }
     },
-    extraReducers: {
-        [register.fulfilled]: (state, action) => {
-            state.current = action.payload;
-            
-        },
-
-        [login.fulfilled]: (state, action) => {
-            state.current = action.payload;
-            
-        },
+    extraReducers: (builder) => {
+        builder
+            .addCase(register.fulfilled, (state, action) => {
+                state.current = action.payload;
+            })
+            .addCase(login.fulfilled, (state, action) => {
+                state.current = action.payload;
+            })
     }
 })
 
 const { reducer, actions } = userSlice;
 export const { logout } = actions;
 export default reducer;
-
-
-//     extraReducers: (builder) => {
-//         builder.addCase(login.fulfilled, (state, action) => {
-//             state.current = action.payload; // Cập nhật state sau khi login thành công
-//         });
