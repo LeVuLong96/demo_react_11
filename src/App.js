@@ -1,12 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import AlbumFeature from './features/Album';
-import TodoFeature from './features/Todo';
-import DetailPage from './features/Todo/pages/DetailPage';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
-import CounterFeature from './features/Counter';
 import ProductFeature from 'features/Product';
+import CartFeature from 'features/Cart'
+import ManageFeatures from 'features/Manage';
 
 function App() {
 
@@ -18,12 +16,12 @@ function App() {
       </div>
       
       <Routes>
-        <Route path='/' element={<CounterFeature/>} />
-        <Route path='/todos/*' element={<TodoFeature/>} >
-          <Route path=':todoId' element={<DetailPage/>}/>
-        </Route>
-        <Route path='/albums' element={<AlbumFeature/>}/>
+        <Route path='/' element={<ProductFeature/>} />
+        <Route path='/admin/*' element={<ManageFeatures/>} />
+
+        
         <Route path='/products/*' element={<ProductFeature/>}/>
+        <Route path='/cart/*' element={<CartFeature/>}/>
 
         <Route path='*' element={<NotFound/>}/>
       </Routes>

@@ -6,7 +6,7 @@ import ProductSkeleton from 'features/Product/components/ProductSkeleton';
 import ProductList from 'features/Product/components/ProductList';
 import ProductSort from 'features/Product/components/ProductSort';
 import ProductFilters from 'features/Product/components/ProductFilters';
-import FilterViewer from 'features/Product/components/Filters/FilterViewer';
+import FilterViewer from 'features/Product/components/FilterViewer';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 

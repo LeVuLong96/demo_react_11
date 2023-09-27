@@ -15,14 +15,12 @@ function Register(props) {
     const {enqueueSnackbar} = useSnackbar();
 
     const handleSubmit = async (value) => {
-        // auto set username = email
         value.username = value.email;
         const action = register(value);
         const resultAction = await dispatch(action)
 
         try {
             unwrapResult(resultAction);
-            //close dialog
             const {closeDialog} = props;
             if (closeDialog) {
                 closeDialog();

@@ -82,7 +82,7 @@ function RegisterForm(props) {
                 fullWidth
                 size="large" 
                 >
-                    ADD
+                    Đăng ký
                 </Button>
                 {isSubmitting && <LinearProgress className="addUser__progress"/>}
             </form>
