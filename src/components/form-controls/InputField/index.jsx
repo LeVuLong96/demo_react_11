@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { TextField, FormHelperText } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Controller } from 'react-hook-form';
@@ -12,14 +12,16 @@ InputField.propTypes = {
 };
 
 function InputField(props) {
-    const { form, name, label, disabled } = props;
+    const { form, name, label, disabled, children } = props;
     const { control, formState } = form;
-    
+
     return (
         <>
             <Controller
                 name={name}
                 control={control}
+                margin='normal'
+                variant="outlined"
                 render={({ field }) => (
                     <>
                         <TextField
@@ -27,12 +29,16 @@ function InputField(props) {
                             fullWidth
                             label={label}
                             disabled={disabled}
-
                             error={!!formState?.errors[name]}
-                            // helperText={formState.errors[name] ? "Incorrect entry." : ""}
-                            helperText={formState?.errors[name]?.message}
-
+                            InputProps={{
+                                endAdornment: children,
+                            }}
                         />
+                        {formState?.errors[name] && (
+                            <FormHelperText error>
+                                {formState?.errors[name]?.message}
+                            </FormHelperText>
+                        )}
                     </>
 
                 )}

@@ -1,23 +1,24 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AlbumFeature from './features/Album';
 import TodoFeature from './features/Todo';
 import DetailPage from './features/Todo/pages/DetailPage';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
-import { useEffect } from 'react';
-import productApi from './api/productApi';
+// import { useEffect } from 'react';
+// import productApi from './api/productApi';
+import CounterFeature from './features/Counter';
 
 function App() {
   
-  useEffect (() => {
-    const fetchProducts = async () => {
-      const productList = await productApi.getAll();
-      // console.log(productList.data);
-    }
+  // useEffect (() => {
+  //   const fetchProducts = async () => {
+  //     const productList = await productApi.getAll();
+  //     console.log(productList.data);
+  //   }
 
-    fetchProducts();
-  }, [])
+  //   fetchProducts();
+  // }, [])
 
 
   return (
@@ -25,13 +26,9 @@ function App() {
       <div>
         <Header/>
       </div>
-
-      <div className=''>
-      <Link to='/todos'>Todos</Link> || <Link to='/albums'>Albums</Link>
-      </div>
       
       <Routes>
-        <Route path='/' element={<TodoFeature/>} />
+        <Route path='/' element={<CounterFeature/>} />
         <Route path='/todos/*' element={<TodoFeature/>} >
           <Route path=':todoId' element={<DetailPage/>}/>
         </Route>

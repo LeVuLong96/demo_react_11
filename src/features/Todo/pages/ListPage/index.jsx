@@ -29,7 +29,6 @@ function ListPage(props) {
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
     
-    
 
     const [todoList, setTodoList] = useState(initTodoList);
     const [filteredStatus, setFilteredStatus] = useState(() => {
@@ -92,9 +91,8 @@ function ListPage(props) {
       }, [todoList, filteredStatus]);
 
     const handleTodoFormSubmit = (values) => {
-        console.log('Form submit:', values);
         const newTodo = {
-            id: todoList.length,
+            id: todoList.length + 1,
             title: values.title,
             status: 'new',
         };

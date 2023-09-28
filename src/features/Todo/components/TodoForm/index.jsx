@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
-import InputField from '../../../../components/form-controls/InputFiled';
+import InputField from '../../../../components/form-controls/InputField';
 
 
 
@@ -14,7 +14,6 @@ TodoForm.propTypes = {
 function TodoForm(props) {
     const schema = yup.object({
         title: yup.string().required('Please enter a title'),
-        // validation cho title là 1 giá trị string. nếu lỗi thì show
     })
 
     const form = useForm({
@@ -26,7 +25,6 @@ function TodoForm(props) {
 
 
     const handleSubmit = (values) => {
-        console.log('TODO FORM: ', values);
         const {onSubmit} = props;
         if (onSubmit) onSubmit(values);
     };
