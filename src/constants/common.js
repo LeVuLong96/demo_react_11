@@ -1,0 +1,2 @@
+export const STATIC_HOST = 'https://api.ezfrontend.com'
+export const THUMBNAIL_PLACEHOLDER = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgjiH7__azSdpFqmyz8DCqHtZc9NtEd5kisNHuncMloYjSfCGFxV8JQaDHaDs-C0WaTDo&usqp=CAU'

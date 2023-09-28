@@ -20,7 +20,7 @@ function Login(props) {
 
         try {
             unwrapResult(resultAction);
-            //close dialog
+           
             const {closeDialog} = props;
             if (closeDialog) {
                 closeDialog();
@@ -29,7 +29,6 @@ function Login(props) {
             console.log('Failed to Login', error);
             enqueueSnackbar(error.message, {variant: 'error'});
         }
-
     }
 
     return (

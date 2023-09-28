@@ -8,7 +8,6 @@ const userApi = {
 
     login(data) {
         const url = '/auth/local';
-        console.log(url, data, 'Api-login');
         return axiosClient.post(url, data );
     },
 };
